@@ -1,0 +1,23 @@
+name: Install Bazel
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  install-bazel:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Install Bazel
+        uses: bazel-contrib/setup-bazel@v0
+        with:
+          bazelisk-version: latest
+      
+      - name: Verify Bazel installation
+        run: bazel --version
