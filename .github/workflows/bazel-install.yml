@@ -26,3 +26,13 @@ jobs:
       
       - name: Verify Bazel installation
         run: bazel --version
+
+      - name: List home directory after Bazel install
+        run: ls -alh ~
+
+      - name: List all files in home and temp directories
+        run: |
+          echo "Home directory:"
+          ls -alhR ~
+          echo "Temp directory:"
+          ls -alhR /tmp
